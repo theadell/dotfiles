@@ -1,0 +1,48 @@
+# Neovim specific
+lazy-lock.json
+**/lazy/*
+**/.netrwhist
+**/undodir/*
+**/spell/*
+**/*.luac
+*.swap
+*.bak
+
+# LSP
+**/.lsp/*
+**/lsp-servers/*
+**/node_modules/*
+
+# Compiled files
+*.o
+*.so
+*.dll
+*.dylib
+*.log
+
+# Machine-specific configs
+*.local
+*.local.lua
+local.conf
+local.vim
+
+# Tmux
+**/plugins/*
+**/*.log
+**/resurrect/*
+
+# Editor/OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Keep these empty directories with .gitkeep
+!**/*/plugins/.gitkeep
+!**/*/undodir/.gitkeep
