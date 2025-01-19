@@ -27,7 +27,7 @@ local.conf
 local.vim
 
 # Tmux
-**/plugins/*
+tmux/plugins/*
 **/*.log
 **/resurrect/*
 
