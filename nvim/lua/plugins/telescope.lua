@@ -14,6 +14,10 @@ return {
     keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")           -- list available help tags
     keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>")            -- list recently opened files
 
+    keymap.set("n", "<leader>fa", function()                                -- search without ignoring git ignore
+      builtin.find_files({ no_ignore = true, hidden = true })
+    end)
+
     keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")         -- list all git commits (use <cr> to checkout) ["gc" for git commits]
     keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>")       -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
     keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")        -- list git branches (use <cr> to checkout) ["gb" for git branch]
