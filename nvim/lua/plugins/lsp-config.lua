@@ -20,6 +20,7 @@ return {
           "taplo",
           "dockerls",
           "docker_compose_language_service",
+          "gopls",
         },
       })
     end,
@@ -68,6 +69,60 @@ return {
       "mfussenegger/nvim-dap",
     }
   },
+  -- go debugging
+  {
+    "leoluz/nvim-dap-go",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    ft = "go",
+    config = function()
+      local dap = require("dap-go")
+      dap.setup({
+        dap_configurations = {
+          {
+            -- Must be "go" or it will be ignored by the plugin
+            type = "go",
+            name = "Attach remote",
+            mode = "remote",
+            request = "attach",
+          },
+        },
+
+      })
+    end,
+    keys = {
+      { "<leader>Db", "<cmd>DapToggleBreakpoint<CR>", desc = "Add breakpoint at line" },
+      {
+        "<leader>Dgt",
+
+        function()
+          require("dap-go").debug_test()
+        end
+        ,
+        desc = "Debug go test"
+      },
+      {
+        "<leader>Dgl",
+
+        function()
+          require("dap-go").debug_test()
+        end
+        ,
+        desc = "Debug last go test"
+      },
+      {
+        "<leader>Dus",
+        function()
+          local widgets = require("dap.ui.widgets")
+          local sidebar = widgets.sidebar(widgets.scope)
+          sidebar.open();
+        end
+        ,
+        desc = "open debugging side bar"
+      },
+    },
+  },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -109,6 +164,22 @@ return {
       lspconfig.clangd.setup({
         capabilities = capabilities
       })
+
+      lspconfig.gopls.setup({
+        capabilities = capabilities,
+        settings = {
+          gopls = {
+            usePlaceholders = true,
+            completeUnimported = true,
+            staticcheck = true,
+            gofumpt = true,
+            analyses = {
+              unusedparams = true,
+            },
+          },
+        },
+      })
+
       -- keymaps
       local keymap = vim.keymap
       local opts = {}

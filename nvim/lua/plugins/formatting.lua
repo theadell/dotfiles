@@ -24,8 +24,8 @@ return {
         lua = { "stylua" },
         python = { "isort", "black" },
         rust = { "rustfmt", lsp_format = "fallback" },
-        go = { "goimports", "gofmt" },
-        java = { lsp_format = "perfer" },
+        go = { "gofumpt", "goimports" },
+        java = { lsp_format = "prefer" },
         xml = { "xmlformatter" }
       },
 

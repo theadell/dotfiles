@@ -147,17 +147,22 @@ local function setup_jdtls()
     workspace_dir
   }
 
+
+  local java_style = require("plugins.config.java_style")
+
   -- Configure settings in the JDTLS server
   local settings = {
     java = {
       -- Enable code formatting
       format = {
         enabled = true,
+        settings = java_style,
+
         -- Use the Google Style guide for code formattingh
-        settings = {
-          url = vim.fn.stdpath("config") .. "/lang_servers/intellij-java-google-style.xml",
-          profile = "GoogleStyle"
-        }
+        -- settings = {
+        --   url = vim.fn.stdpath("config") .. "/lang_servers/intellij-java-google-style.xml",
+        --   profile = "GoogleStyle"
+        -- }
       },
       -- Enable downloading archives from eclipse automatically
       eclipse = {
