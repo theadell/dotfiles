@@ -31,6 +31,7 @@ return {
       -- Setup servers
       lspconfig.lua_ls.setup(require("plugins.lsp.servers.lua_ls").setup(capabilities))
       lspconfig.gopls.setup(require("plugins.lsp.servers.gopls").setup(capabilities))
+      lspconfig.yamlls.setup(require("plugins.lsp.servers.yamlls").setup(capabilities))
 
       -- Setup common servers
       local common_config = require("plugins.lsp.servers.common").setup(capabilities)
