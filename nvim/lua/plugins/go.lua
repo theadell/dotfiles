@@ -8,7 +8,7 @@ return {
   config = function()
     require("go").setup({
       -- use lsp config in lsp/servers/gopls.lua
-      lsp_cfg = false
+      lsp_cfg = false,
     })
   end,
   event = { "CmdlineEnter" },
