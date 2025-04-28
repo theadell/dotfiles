@@ -28,7 +28,7 @@ return {
 
       -- LSP setup
       local lspconfig = require("lspconfig")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       -- Setup servers
       lspconfig.lua_ls.setup(require("plugins.lsp.servers.lua_ls").setup(capabilities))
@@ -52,7 +52,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
+      "saghen/blink.cmp",
     },
   },
 }
