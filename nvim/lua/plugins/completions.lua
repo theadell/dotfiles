@@ -8,12 +8,20 @@ return {
 
   version = '1.*',
   opts = {
-    keymap = { preset = 'default' },
-
+    keymap = {
+      preset = 'default',
+      ['<CR>'] = { 'accept', 'fallback' },
+    },
     appearance = {
       nerd_font_variant = 'mono'
     },
 
+    cmdline = {
+      keymap = {
+        preset = 'default',
+        ['<CR>'] = { 'accept', 'fallback' },
+      }
+    },
     -- (Default) Only show the documentation popup when manually triggered
     completion = { documentation = { auto_show = false } },
 
